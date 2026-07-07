@@ -1,0 +1,28 @@
+# Next.js (my-app has its own nested .gitignore too; this is a top-level backstop)
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Jekyll (my-awesome-site)
+my-awesome-site/_site/
+my-awesome-site/.jekyll-cache/
+my-awesome-site/.bundle/
+my-awesome-site/vendor/
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.pyc
+
+# Claude Code local settings (machine-specific, not project content)
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
