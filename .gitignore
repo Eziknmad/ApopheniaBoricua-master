@@ -22,6 +22,12 @@ __pycache__/
 # Claude Code local settings (machine-specific, not project content)
 .claude/
 
+# FeeDesktopDbus-master is its own independent git project (remote:
+# git@gitlab.com:pareidoliaboricua/FeeDesktopDbus-master.git) with real
+# commit history. It's kept on disk here for convenience but intentionally
+# NOT folded into this repo's history -- push/pull it via its own .git.
+PareidoliaBoricua/FeeDesktopDbus-master/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
