@@ -1,0 +1,3 @@
+[submodule "PareidoliaBoricua/FeeDesktopDbus-master"]
+	path = PareidoliaBoricua/FeeDesktopDbus-master
+	url = git@gitlab.com:pareidoliaboricua/FeeDesktopDbus-master.git
