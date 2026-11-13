@@ -3,7 +3,7 @@
 Owner: the Human Architect (HA). Writer: this directory's session (started from `~/Applications/ApopheniaBoricua-master`).
 Parent: `~/Desktop/HANDOFF_CAMPAIGN_REGION.md`.
 Handed over from the Multi-Agent-LLM session to the campaign region under CM-3 (D3), 2026-11-12.
-Last updated: 2026-11-13 (first version; CM-3 order from the campaign session; HA yes 1 plan, yes 2 old → new, yes 3 write and commit).
+Last updated: 2026-11-13 (final values after the publish: Pages workflow, push, live page; HA yes). Before that: 2026-11-13 (first version, commit 96f3763; CM-3 order from the campaign session; HA yes 1 plan, yes 2 old → new, yes 3 write and commit).
 Audience: the next Claude Code / Codex session in this folder, and the HA.
 
 Session start (H-9): new work starts in a fresh `claude` from this handoff.
@@ -11,16 +11,18 @@ Session start (H-9): new work starts in a fresh `claude` from this handoff.
 ## Next session starts here
 
 **Start checks (read only, expected result):**
-- `git log --oneline -1` → the commit that last changed this file (`git log -1 --format=%h -- HANDOFF.md`; it cannot name itself), on `3edad16`.
-- `git status -sb` → `## main...origin/main [ahead 1]` until a push, then 4 untracked lines: `ApopheniaBoricua-master/`, `FeeDesktopDbus-master/`, `public/images/lattice-design.png`, `public/slides.html`.
+- `git log --oneline -1` → the commit that last changed this file (`git log -1 --format=%h -- HANDOFF.md`; it cannot name itself), on `f9e0c91` (Pages workflow) on `96f3763` (page and first handoff) on `3edad16`.
+- `git status -sb` → `## main...origin/main [ahead 1]` (this file's final update, local; a push needs the HA's yes and re-runs the Pages workflow), or even with origin once pushed; then 4 untracked lines: `ApopheniaBoricua-master/`, `FeeDesktopDbus-master/`, `public/images/lattice-design.png`, `public/slides.html`.
 - `git remote get-url origin` → `https://github.com/Eziknmad/ApopheniaBoricua-master.git`.
 - `sha256sum public/index.html public/style.css public/slides.html` → `6ba0b78d…`, `9f0a3da7…`, `d4776023…`.
 - `grep -n "Nov 8\|November 8" public/index.html` → nothing.
+- `curl -s -o /dev/null -w '%{http_code}' https://eziknmad.github.io/ApopheniaBoricua-master/` → `200`; the served `index.html` has the same sha256 as `public/index.html`.
 Then confirm with the HA what to work on. Nothing is authorized by this note.
 
 **Unfinished work (item → owner → what is needed):**
 - Demo video URL → HA → the HA records the video; then one line in `public/index.html` (the disabled button at `:34-35`, `[YOUTUBE_URL]` comment) and a new item on the intranet.
-- Publish on GitHub Pages → HA → separate yes (CM-3 Part D). On 2026-11-13 `https://github.com/Eziknmad/ApopheniaBoricua-master` answered 404 to a signed-out request, so the repository link on the page does not open for visitors yet.
+- ~~Publish on GitHub Pages~~ done 2026-11-13 (HA publish yes): live at `https://eziknmad.github.io/ApopheniaBoricua-master/`; the repository is public and its link on the page opens (200).
+- Intranet task 3 "Landing Page URL" → HA → paste `https://eziknmad.github.io/ApopheniaBoricua-master/`.
 - Repository sentence at `public/index.html:142` → HA → it says "The landing page's source is in the project repository on GitHub" today, because this repository holds the landing page only. When the app code is pushed (LP-7, separate HA yes), change the sentence and the link to point at the apps' code. No change to the page until then.
 - X profile link when the HA has an account → HA → left out for now with no placeholder (HA, 2026-11-13). The intranet task asks for a Twitter profile link; add it next to LinkedIn and GitHub at `public/index.html:147` once the HA gives the URL.
 - `public/images/lattice-design.png` → HA → left out of the commit (HA, 2026-11-13); not used by `index.html`.
@@ -40,14 +42,14 @@ Then confirm with the HA what to work on. Nothing is authorized by this note.
   - Task 0 intro: met, except the button is disabled ("coming soon") because no demo video exists.
   - Task 1 features: met.
   - Task 2 about: story, timeline, Holberton School link, LinkedIn, GitHub profile and repository link present; no Twitter/X.
-  - Task 3 deliverables: no landing page URL and no video yet.
-- Tracked: `public/index.html`, `public/style.css`, 4 PNGs in `public/images/`, `HANDOFF.md`, `README.md`, `.gitignore`, `.gitlab-ci.yml`, `.gitmodules`, `.github/`, `engine-contract/`, `my-app/`, `my-awesome-site/`, `PareidoliaBoricua/`.
+  - Task 3 deliverables: landing page URL exists (`https://eziknmad.github.io/ApopheniaBoricua-master/`; the HA enters it on the intranet); no video yet.
+- Tracked: `public/index.html`, `public/style.css`, 4 PNGs in `public/images/`, `HANDOFF.md`, `README.md`, `.gitignore`, `.gitlab-ci.yml`, `.gitmodules`, `.github/` (`copilot-instructions.md`, `workflows/pages.yml`), `engine-contract/`, `my-app/`, `my-awesome-site/`, `PareidoliaBoricua/`.
 - Untracked: `ApopheniaBoricua-master/` and `FeeDesktopDbus-master/` (both nested git folders dated 2026-07-09), `public/slides.html`, `public/images/lattice-design.png`.
 - `FeeDesktopDbus-master/` holds `config`, `id_ed25519.pub`, `known_hosts.old` and an empty `README.md` (names listed only, not opened).
 - `.gitignore` keeps `.claude/`, `.env*`, `node_modules/` and build folders out of git.
-- `.github/` holds only `copilot-instructions.md` (no workflows). `.gitlab-ci.yml` is a GitLab Pages template that serves `public/`; it runs on GitLab only, and origin is GitHub.
+- `.github/workflows/pages.yml` (commit `f9e0c91`) uploads `public/` to GitHub Pages on every push to `main` and on manual run; action versions match GitHub's static Pages starter workflow of 2026-11-13. `.github/copilot-instructions.md` is older and unrelated. `.gitlab-ci.yml` is a GitLab Pages template; it runs on GitLab only, and origin is GitHub.
 - `.gitmodules` names one submodule: `PareidoliaBoricua/FeeDesktopDbus-master` (GitLab, SSH URL).
-- Not published: nothing pushed since `3edad16`.
+- Published 2026-11-13: origin/main = `f9e0c91`; the repository is public (set by the HA) with Pages source "GitHub Actions"; workflow run `43501760587` succeeded. The page site serves only the tracked files in `public/` (`index.html`, `style.css`, 4 PNGs); `slides.html`, `lattice-design.png` and `HANDOFF.md` return 404 there. Everything tracked, this file and the commit author email included, is readable in the public repository.
 
 ## Handoff chain (read in this order)
 1. `~/Desktop/HANDOFF_CAMPAIGN_REGION.md` (region rules, FACT format, hard rules).
@@ -62,7 +64,7 @@ AI-chat notes and ChatGPT Desktop / Codex output are input, not authority.
 - Questions go to the campaign session through the HA.
 
 ## Hard rules
-- Nothing is pushed or made public without the HA's separate publish yes. A push is plain `git push origin main`: no force push, no history rewrite, no branch deletion, no other repo. LP-7 stays closed for the tutor and BunkHouseChess.
+- Nothing is pushed or made public without the HA's separate publish yes. A push is plain `git push origin main`: no force push, no history rewrite, no branch deletion, no other repo. LP-7 stays closed for the tutor and BunkHouseChess. Every push to `main` re-deploys the public page.
 - Never open credential, session or token files. Never stage `FeeDesktopDbus-master/`. Never run `gitauto.sh`. No Atlas cloud.
 - No profit claims; the trading text on the page stays as it is. No new claims, numbers or screenshots without the HA; a missing fact is asked, not filled in.
 - One session for this program (MT-1); no subagents, no parallel workers. Co-author line per CO-1.
@@ -74,3 +76,5 @@ Add `| DRIFT: <file:line>` when a file disagrees with the disk.
 
 ## Session log
 - 2026-11-13: first session under CM-3 (campaign region order; HA yes 1, yes 2, yes 3). Start checks matched the campaign session's values. `public/index.html`: Nov 8 → Nov 9 (`:29`, `:141`), Holberton School link and repository link (`:142`), GitHub profile link (`:147`); button and note unchanged. Page checked at 1440 px and 390 px. This file written. Committed with `public/style.css` and 4 PNGs; no push.
+- 2026-11-13: Part D (HA yes for the workflow, separate HA publish yes). Read-only facts reported; `.github/workflows/pages.yml` committed alone as `f9e0c91`; the HA made the repository public and set the Pages source; plain `git push origin main` sent `3edad16..f9e0c91`; run `43501760587` succeeded. Live page checked at 1440 px and 390 px: served `index.html` identical to disk (`6ba0b78d…`), 4 images and `style.css` 200, Nov 9 in both places, Holberton, repository and GitHub profile links 200; LinkedIn not testable by script (999). The author email was left as is (HA).
+- 2026-11-13: final values and this log written after the campaign session confirmed the push and the live page (HA yes; own commit, local unless the HA gives a push yes).
