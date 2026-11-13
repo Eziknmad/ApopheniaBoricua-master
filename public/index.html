@@ -1,23 +1,169 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applied Multi-Agent AI Engineering Portfolio</title>
+  <meta name="description" content="Four separate demos and research artifacts examined through a human-governed engineering process.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#top">AMAI Portfolio</a>
+      <nav aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#research">Research</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>Hello World!</h1>
+  <main id="main">
+    <!-- 0. Intro -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow">Holberton Portfolio Project · Aug 17 – Nov 9, 2026</p>
+        <h1 id="hero-title">Applied Multi-Agent AI Engineering Portfolio</h1>
+        <p class="lead">Four separate demos and research artifacts examined through a human-governed engineering process.</p>
 
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
-    </p>
-  </body>
+        <div class="cta-row">
+          <!-- [YOUTUBE_URL]: becomes a real link once the video is public -->
+          <span class="button button-disabled" role="link" aria-disabled="true">Watch the demo video (local-app walkthrough) · coming soon</span>
+          <a class="button button-ghost" href="#features">See the features</a>
+        </div>
+        <p class="note">The apps run on two local laptops (a Chromebook and an ASUS). The video shows them running; this page is not a deployed app.</p>
+
+        <figure class="cover">
+          <div class="cover-grid">
+            <div class="cover-panel"><img src="images/tutor.png" alt="The tutor app answering 'What is a Cauchy sequence?' with quoted passages from a real-analysis textbook in the Evidence panel."><span>Tutor</span></div>
+            <div class="cover-panel"><img src="images/orchestrator.png" alt="The Orchestrator tab: 72 documents checked, 4 at a time, with timing bars for the Coordinator, four parallel workers, and the Assembler."><span>Orchestrator</span></div>
+            <div class="cover-panel"><img src="images/bunkhouse.png" alt="BunkHouse Chess practice board with both clocks at 10:00 and an opening-name line above the board."><span>Bunkhouse Chess</span></div>
+          </div>
+          <figcaption>Three separate systems, each a real screenshot of a local run (Oct 27, 2026). They are shown side by side, not connected to each other.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 1. Features -->
+    <section id="features" class="section light" aria-labelledby="features-title">
+      <div class="wrap">
+        <p class="label">01 / Features</p>
+        <h2 id="features-title">Three working systems</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="images/tutor.png" alt="Tutor chat with an answer and the textbook passages it came from.">
+            <span class="badge badge-built">Built and tested</span>
+            <h3>Document-grounded tutor</h3>
+            <p>A web app built around a from-scratch transformer project. It answers from the project's own documents and code, quotes the exact passages, and draws a document map. Every answer shows where it came from.</p>
+            <p class="fact">195 tests pass.</p>
+            <p class="limit">Limit: runs offline on a local laptop.</p>
+          </article>
+          <article class="card">
+            <img src="images/orchestrator.png" alt="Coordinator, four parallel workers and Assembler timing bars from a real audit run.">
+            <span class="badge badge-built">Built and tested</span>
+            <h3>Multi-agent Orchestrator</h3>
+            <p>A Coordinator splits a task, parallel workers run the pieces, and an Assembler collects the results in order. In the demo it audits 72 project documents with rule checkers. A C11 shell host can embed it in native code.</p>
+            <p class="fact">9 tests pass for the slice.</p>
+            <p class="limit">Limit: the checkers are rules, not reasoning. They don't prove a claim is true.</p>
+          </article>
+          <article class="card">
+            <img src="images/bunkhouse.png" alt="BunkHouse Chess board in practice mode.">
+            <span class="badge badge-built">Built and tested</span>
+            <h3>BunkHouse Chess</h3>
+            <p>Four-player bughouse chess on two devices. A WebSocket relay holds the one true game and checks every move. Captured pieces pass to your partner. An ECO opening book names the opening as you play.</p>
+            <p class="fact">Smart contract: 29 of 29 tests pass on a local chain. <span class="badge badge-rules">Checked by rules</span></p>
+            <p class="limit">Limit: the contract is not deployed or audited.</p>
+          </article>
+        </div>
+
+        <aside class="boundary" aria-labelledby="engine-title">
+          <h3 id="engine-title">Supporting work: the C11 Core Engine</h3>
+          <p>A ten-node graph engine written in C11. It is a separate component, not yet wired to the Orchestrator.</p>
+          <ul class="status-list">
+            <li><span class="badge badge-built">Built and tested</span> Node 1: 371 of 371 checks pass.</li>
+            <li><span class="badge badge-designed">Designed but not built</span> Nodes 2–10.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Research case -->
+    <section id="research" class="section paper" aria-labelledby="research-title">
+      <div class="wrap split">
+        <div>
+          <p class="label">02 / Research case</p>
+          <h2 id="research-title">Trading research: an honest coin flip</h2>
+          <p>A data collector records 1-second EURUSD_otc prices from a DEMO account, and the experiment's rules were written down before any result. The question: when the price moves one way, does it keep going?</p>
+          <p class="big-number">49.8%</p>
+          <p>Right 9,929 times out of 19,925, which is chance level. No edge was found, and that's reported as it is.</p>
+          <p class="warning"><strong>DEMO-only research.</strong> No live trading, no real money, no profit claimed. Not part of the Orchestrator.</p>
+        </div>
+        <figure class="shot">
+          <img src="images/trading.png" alt="The Trading tab: collector active, experiment result 49.83 percent, and a 'not claimed' list: no trades, no real money, no profitable strategy.">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Evidence -->
+    <section id="evidence" class="section dark" aria-labelledby="evidence-title">
+      <div class="wrap">
+        <p class="label">03 / Evidence and limits</p>
+        <h2 id="evidence-title">What is true, and how we know</h2>
+        <p>Each claim carries its own label. A label covers that claim only, not the whole project.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Claim</th><th scope="col">Status</th><th scope="col">Evidence</th><th scope="col">Limit</th></tr></thead>
+            <tbody>
+              <tr><td>Tutor answers from project documents</td><td>Built and tested</td><td>195 tests pass</td><td>Local laptop only</td></tr>
+              <tr><td>Coordinator → parallel workers → Assembler</td><td>Built and tested</td><td>9 tests pass</td><td>Rule checkers, not reasoning</td></tr>
+              <tr><td>Core Engine Node 1</td><td>Built and tested</td><td>371 of 371 checks</td><td>Nodes 2–10 not built</td></tr>
+              <tr><td>Bughouse over a WebSocket relay</td><td>Built and tested</td><td>Played live on two laptops, Demo Day Oct 26</td><td>Local network only</td></tr>
+              <tr><td>Bunkhouse smart contract</td><td>Checked by rules</td><td>29 of 29 tests on a local chain</td><td>Not deployed, not audited</td></tr>
+              <tr><td>Trading experiment</td><td>Built and tested</td><td>9,929 of 19,925 (49.8%)</td><td>DEMO data; no edge</td></tr>
+              <tr><td>Core Engine Nodes 2–10</td><td>Designed but not built</td><td>Approved designs</td><td>No code yet</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About -->
+    <section id="about" class="section light" aria-labelledby="about-title">
+      <div class="wrap split">
+        <div>
+          <p class="label">04 / About</p>
+          <h2 id="about-title">Why this exists</h2>
+          <p>I built this GitHub portfolio to pave my way toward becoming a cybersecurity expert and establishing long-term professional stability. As a certified Computer Operator originally from New York and now a student at Holberton School, my goal is to turn technical curiosity into real-world protection. This space is where I actively document my progress, share tools, and refine my skills in Linux system administration, Bash, and Python scripting. Ultimately, I want to deeply master how data is stored and secured so I can protect personal privacy and make a meaningful impact on software development and modern medicine.</p>
+          <p class="timeline">MVP: August 17–October 26. Demo Day: October 26. Final Stage 5 presentation: November 9, 2026.</p>
+          <p>This is a Portfolio Project for <a href="https://www.holbertonschool.com">Holberton School</a>. The landing page's source is in the <a href="https://github.com/Eziknmad/ApopheniaBoricua-master">project repository on GitHub</a>.</p>
+        </div>
+        <div>
+          <h3>Team</h3>
+          <ul class="team">
+            <li><strong>Kevin Galarza</strong> (Human Architect): vision owner and final authority on every decision. <a href="https://www.linkedin.com/in/kevin-galarza-221a12186/">LinkedIn</a> · <a href="https://github.com/Eziknmad">GitHub</a></li>
+          </ul>
+          <h3>AI collaborators and their roles</h3>
+          <ul class="ai-roles">
+            <li><strong>Claude Code:</strong> implementation and documents.</li>
+            <li><strong>ChatGPT:</strong> architecture review.</li>
+            <li><strong>Google AI:</strong> review and validation.</li>
+            <li><strong>Arena AI:</strong> landing-page design.</li>
+          </ul>
+          <p class="note-dark">The AI tools work under the Human Architect's decisions. Every change is written down and approved before it's built.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>Applied Multi-Agent AI Engineering Portfolio · Kevin Galarza · 2026</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+</body>
 </html>
-
